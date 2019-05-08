@@ -2,6 +2,10 @@
   <head>
     <title>练习</title>
     <meta charset="utf-8">
+    <style>
+     rowspan{
+     background:red;}
+    </style>
   </head>
   <body>
      <h1>Lorem.</h1>
@@ -17,11 +21,12 @@
      <p>
        <a href="http://www.jingdong.com" title="_blank">在新窗口打开京东</a>
        <a href="mailto:name@email.com">点击给我发邮件</a>
-       <a href="#dibu">跳转到本页底部</a>
+       <a href="#foo">跳转到本页底部</a>
        <a href="跳转图片.jpg" downlad>点我可以下载一个文件</a></br>
        <img src="./跳转图片.jpg" width="200" height="200"/>   
        <hr></hr>
        <hr></hr>
+  
      </p>
      <marquee direction="left">飘~~~</marquee>
      <p><em>这几种强调</em> <strong>有什么</strong> <b>区别呢？</b> <u>这个呢？</u> <i>这个呢？</i></p>
@@ -112,9 +117,74 @@
        <input type="text"></input>
        <input type="text"></input>
     </fieldset>
-    <input type="submit">
+    <input type="submit" value="提交">
     <input type="reset">
     <hr></hr>
-     <footer id="dibu"></footer>
-  </body>
+
+
+     <table border=1>
+      <caption>货品列表</caption>
+      <colgroup></colgroup>
+      <colgroup bgcolor=red></colgroup>
+      <colgroup></colgroup>
+      <colgroup></colgroup>
+      <colgroup></colgroup>
+      <tr>
+        <th>编号</th>
+        <th>品名</th>
+        <th>进价</th>
+        <th>出价</th>
+      </th>
+      <tbody>
+      <tr>
+        <th>001</th>
+        <td >苹果</td>
+        <td rowspan=2>5</td>
+        <td>8</td>
+      </tr>
+       <tr>
+        <th>001</th>
+        <td>桔子</td>
+        <td>8</td>
+        
+      </tr>
+       <tr>
+        <th>001</th>
+        <td>香蕉</td>
+        <td>5</td>
+        <td>8</td>
+      </tr>
+       <tr>
+        <th>001</th>
+        <td>山竹</td>
+        <td>5</td>
+        <td>8</td>
+      </tr> 
+     <tbody>
+    </table>
+
+
+    <hr></hr>
+
+
+    <img  width=300 src="https://drscdn.500px.org/photo/174778125/m%3D1170_k%3D1/2841ccf2a3720e8e794a6a6930f6ff2c" usemap="#maotouying">
+    <map name="maotouying" width=200>
+      <area shape="rect" coords="80,110,191,181" href="https://www.mi.com/" target="_blank"></area>
+      <area shape="circle" coords="135,258,59" href="#" target="_self"></area>
+      <area shape="poly" coords="63,83,188,90,223,260,172,389,31,279" href="#" target="_self"></area>
+    </map>
+    <br>
+
+
+  </hr>
+  <a href="https:www.mi.com" target="map2">点击我会在下面的frame里打开小米商场，但为什么打不开呢？</a>
+  <br>
+
+  <iframe name="map2" src="https://nodejs.org/en/" width=300 height=200></iframe>
+  <p>怎样&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这两个字之间空这么大呢？ </p>
+  <p>怎样在页面中显示下面的内容呢？ </p>
+ &lt;span&gt;&lt;/span&gt;
+ <footer id="foo"></footer>
+
+</body>
 </html>
