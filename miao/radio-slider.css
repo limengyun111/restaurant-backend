@@ -1,0 +1,70 @@
+section div{
+    width:1300px;
+    height:800px;
+    display:none;
+  }
+  
+  .a{
+    background-image:
+      url("https://i1.mifile.cn/a4/xmad_15566146318197_mAghl.jpg");
+    background-size:100%;
+    background-repeat:no-repeat;
+  }
+  
+  .b{
+    background-image:
+      url("https://i1.mifile.cn/a4/xmad_15529884424562_HKYaG.jpg");
+    background-size:100%;
+    background-repeat:no-repeat;
+  }
+  
+  .c{
+    background-image:
+      url("https://i1.mifile.cn/a4/xmad_15579184778872_ECdvK.jpg");
+    background-size:100%;
+    background-repeat:no-repeat;
+  }
+  
+  .d{
+    background-image:
+      url("https://i1.mifile.cn/a4/xmad_15548066591437_Stxlj.jpg");
+    background-size:100%;
+    background-repeat:no-repeat;
+  }
+  
+  .e{
+    background-image:
+      url("https://i1.mifile.cn/a4/xmad_15476942061027_STEvM.jpg");
+    background-size:100%;
+    background-repeat:no-repeat;
+  }
+  input{
+      position:relative;
+      top:460px;
+      left:1100px;
+  }
+  
+  
+  input:hover{
+    cursor:pointer;
+  }
+  
+  input:nth-child(1):checked ~section .a {
+    display:block;
+  }
+  
+  input:nth-child(2):checked ~section .b {
+    display:block;
+  }
+  
+  input:nth-child(3):checked ~section .c {
+    display:block;
+  }
+  
+  input:nth-child(4):checked ~section .d {
+    display:block;
+  }
+  
+  input:nth-child(5):checked ~section .e {
+    display:block;
+  }
