@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Arial|Roboto+Slab|Roboto|Ubuntu|Georgia|Macondo+Swash+Caps|Days+One|Milonga|IM+Fell+English|Combo|Autour+One|Josefin+Slab|Quicksand|Chicle|Kotta+One|Averia+Serif+Libre|Happy+Monkey|Special+Elite);
+
+
+
+.oa_h {
+    color:#3333CC;
+    font-weight: bold;
+    font-size:12pt;
+}
+.oa_key {
+    color:red;
+}
+.oa_p {
+    font-style:oblique;
+    font-weight:bold;
+}
+
+.oa_h-g {
+    display:block;
+}
+.oa_if {
+    color: #33CC33;
+}
+.oa_p-g {
+    display:block;
+}
+.oa_p-g::before {
+    content:" ";
+    margin:10px 0;
+    border:1px solid;
+    display: block;
+    color:rgba(235,235,235);
+}
+.oa_sd-g {
+    margin-left:1em;
+    display:block;
+}
+.oa_sd {
+    font-size:10pt;
+    font-weight: bold;
+    color:#CC3333;
+}
+.oa_n-g {
+    margin-left:1em;
+    display:block;
+    font-size: 12pt;
+    font-weight: bold;
+    counter-increment: nums;
+}
+.oa_n-g:before {
+    content:counter(nums) ".";
+    color:DodgerBlue;
+}
+
+.oa_d {
+    font-size:12pt;
+    font-style: normal;
+    font-weight: normal;
+    display: block;
+    text-indent: 20px;
+}
+.oa_x {
+    font-size: 12pt;
+    font-style: italic;
+    font-weight: normal;
+    display: block;
+    text-indent: 1em;
+    color: grey;
+    margin-left: 1em;
+}
+.oa_x::before {
+    content: "- ";
+
+}
+.oa_xr {
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.oa_r {
+    font-size:12pt;
+    font-style: normal;
+    font-weight: normal;
+}
+.oa_r_en {
+    font-size: 12pt;
+    font-style: italic;
+    font-weight: normal;
+    font-family: "Averia Serif Libre";
+}
+.oa_bracket {
+    font-weight: normal;
+    font-style: normal;
+}
+.oa_pt {
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none;
+}
+.oa_id-g {
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+    display: block;
+    margin-left: 2em;
+}
+.oa_idm {
+    background-color: #C33;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+.oa_id {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #3333CC;
+    font-style: normal;
+}
+.oa_id::after {
+    content:" ";
+}
+.oa_pv {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #3333CC;
+    font-style: normal;
+}
+.oa_syn_gif {
+    background-color: #C33;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+
+}
+.oa_syn_gif::after {
+    content:" ";
+    background-color: #fff;
+
+}
+.oa_syn_gif ~ a {
+    color:  #C33;
+    cursor: pointer;
+    text-decoration: none;
+}
+.oa_xr {
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: normal;
+}
