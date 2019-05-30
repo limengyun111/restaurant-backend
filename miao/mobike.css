@@ -52,9 +52,9 @@ span.four-four {
     background-position:center center;
     background-size: cover;
     height:190px;
-    border:2px solid rgba(0,0,0,0);
+    border:1px solid rgba(0,0,0,0);
     float:left;
-    width:24.99%;
+    width:25%;
     box-sizing: border-box;
 }
 .four-images {
