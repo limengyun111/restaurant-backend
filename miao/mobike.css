@@ -11,6 +11,9 @@
 body {
     margin:0;
 }
+.images {
+    overflow: hidden;
+}
 
 .images div:nth-child(2) {
     background-image:url("https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-6.jpg");
@@ -18,19 +21,14 @@ body {
     background-position:center center;
     background-size: cover;
     height:762px;
-    gposition: absolute;
     width:100%;
     
 } 
 
 
-@media (min-width:1061px) {
-    .images div {
-    height:762px;  
-}
-}
-@media (max-width:1061px) {
-    .images div {
+
+@media (max-width:1080px) {
+    .images div:first-child,.images div:nth-child(2) {
     height:442px;
 }
 }
@@ -52,7 +50,7 @@ span.four-four {
     background-position:center center;
     background-size: cover;
     height:190px;
-    border:1px solid rgba(0,0,0,0);
+    border:1px solid white;
     float:left;
     width:25%;
     box-sizing: border-box;
@@ -60,7 +58,7 @@ span.four-four {
 .four-images {
     overflow: hidden;
 }
-@media (max-width:1061px){
+@media (max-width:1080px){
     .four-images span {
         width:50%;
     }
@@ -89,20 +87,24 @@ span.four-four {
 
 
 .first-word {
-    height:156px;
     margin-top:50px;
+    overflow:hidden;
 }
 
-@media (max-width:1060px) {
+@media (max-width:1080px) {
     .first-word {
         padding-right:20px;
         padding-left:20px;
     }
     .first-word div {
         width:33%;
+        height:156px;
 
 
     }
+}
+.four {
+    overflow:hidden;
 }
 @media (max-width:625px) {
     .first-word {
@@ -115,7 +117,7 @@ span.four-four {
 
     }
 }
-@media (min-width:1060px) {
+@media (min-width:1080px) {
     .first-word {
         width:90%;
         margin-left:auto;
