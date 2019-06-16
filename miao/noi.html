@@ -122,7 +122,7 @@
   <script type="dd" id="ch0103/11">
     var a = Number(prompt())
   var b = Number(prompt())
-  var c = (a % b ).toFixed
+  var c = (a % b ).toFixed(4)
   console.log(c)
 </script>
 
@@ -307,7 +307,7 @@
   <script type="dd" id="ch0104/11">
     var x = Number(prompt())
   if ((x != 1) && (x != 3) && (x != 5)) {
-    console.log(NO)
+    console.log("NO")
   }else {
     console.log("YES")
   }
@@ -445,13 +445,13 @@
     var x = Number(prompt())
     var y = Number(prompt())
     var z = String((prompt()))
-    if (y === 0) && ((z === "/"){
+    if((y === 0) && (z === "/")){
       console.log("Divided by zero")
     } else if ((z !== "+") && (z !== "-") && (z !== "*") &&(z !== "/")) {
       console.log("Invalid operator")
-    } else if (z === " + ") { 
+    } else if (z === "+") { 
       console.log(x+y)
-    }else if (z === " - ") { 
+    }else if (z === "-") { 
       console.log(x - y)
     }else if (z === "*") { 
       console.log(x * y)
@@ -479,8 +479,8 @@
       } else {
         var aa= ((-b) / 2 / a).toFixed(5)
         var s =(Math.sqrt( 4 * a * c - b * b) / 2 /a).toFixed(5)
-        console.log(aa +"+"+ s + "i")
-        console.log(aa+"-"+ s + "i")
+        console.log("x1"+"=" +aa +"+"+ s + "i")
+        console.log("x2"+"=" +aa+"-"+ s + "i")
       }
   
     </script>
@@ -602,14 +602,7 @@
      console.log(sum)
     </script>
 
-  <script type="dd" id="ch0105/08">
-    var m = Number(prompt())
-     var n = Number(prompt())
-     var nn= ((n - m) / 2 + 1)
-     var sum = nn * m + nn * (nn - 1)
-     console.log(sum)
 
-    </script>
   <script type="dd" id="ch0105/09">
     var m = Number(prompt())
       var n = Number(prompt())
@@ -729,6 +722,7 @@
       console.log(n + "=" + 3 +"*" +n+"+" + 1)
     }
     }
+    console.log("End")
 </script>
 
   <script type="dd" id="ch0105/22">
@@ -1096,22 +1090,37 @@
 </script>
 
   <script id="ch0105/44">
-    debugger
-    var n = Number(prompt())
-    var count = 0
+    // debugger
+    // var n = Number(prompt())
+    // var result = 0
+    // var count = 0
+    // var i = 2
+    // while (count < n) {
+    //   if (((i === 2) || (i === 3) ||
+    //       (i === 5) || (i === 7)) || ((i % 2 !== 0) && (i % 3 !== 0) && (i % 5 !== 0) && (i % 7 !== 0))) {
+    //     count = count + 1
+    //   }
+    //   if (count === n) {
+    //     console.log(i)
+    //   }
+    //   i++
+    // }
     
-      for (var i = 2; i < 10000; i++) {
-        while (count < n) {
-        if (((i === 2) || (i === 3) ||
-            (i === 5) || (i === 7)) || ((i % 2 !== 0) && (i % 3 !== 0) && (i % 5 !== 0) && (i % 7 !== 0))) {
-          count = count + 1
-        }
-        console.log(i)
-        break
+
+    var n = Number(prompt())
+    var result = 0
+    var count = 0
+    for(var i = 2;count < n;i++) {
+      if (((i === 2) || (i === 3) ||
+          (i === 5) || (i === 7)) || ((i % 2 !== 0) && (i % 3 !== 0) && (i % 5 !== 0) && (i % 7 !== 0))) {
+        count = count + 1
       }
-      
+      if (count === n) {
+        console.log(i)
+      }
 
     }
+    
   </script>
 
 </body>
