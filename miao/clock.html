@@ -16,7 +16,7 @@ span {
   transform:translate(-50% ,-50%); 
   box-sizing:border-box;
 }
-div {
+.clock {
   width:200px;
   height:200px;
   border:1px solid;
@@ -24,6 +24,7 @@ div {
   position:relative;
   border-radius:50%;
   box-sizing:border-box;
+  position: relative;
 }
 span:nth-child(1) {
   transform:translate(-50% ,-50%) rotate(-60deg) translatex(90px) rotate(60deg);  
@@ -61,11 +62,112 @@ span:nth-child(11) {
 span:nth-child(12) {
   transform:translate(-50% ,-50%) rotate(270deg) translatex(90px) rotate(-270deg);  
 }   
+
+/* 秒针样式 */
+.sec {
+  width:2%;
+  height:50%;
+ 
+  position:absolute;
+  
+  left:49%;
+  top:2.5%;
+  transform-origin: center 95px;
+  animation:sec 60s steps(60);
+}
+@keyframes sec {
+  0% {
+    transform:rotate(0deg);  
+  }
+  100% {
+    transform: rotate(360deg);   
+  }
+}
+.sec-back {
+    animation:back  1s infinite;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background-color: red;
+    border-top-left-radius:50% 50%;
+    border-top-right-radius:50% 50%;
+    transform-origin: center 95px;
+}
+@keyframes back {
+  0% {
+    transform: (0deg);  
+  }
+  5% {
+    transform:rotate(2deg);  
+  }
+  10% {
+    transform: rotate(0deg);  
+  }
+  15% {
+    transform: rotate(-1deg);  
+  }
+  20% {
+    transform: rotate(0deg);  
+  }
+
+  100% {
+    transform: rotate(0deg);   
+  }
+
+}
+
+/* 分针样式 */
+.min {
+  width:2%;
+  height:45%;
+  position:absolute; 
+  left:49%;
+  top:5%;
+  transform-origin: center 95px;
+  animation:min 3600s steps(60);
+  background-color:yellow;
+  border-top-left-radius:50% 50%;
+  border-top-right-radius:50% 50%;
+  transform-origin: center bottom;
+}
+@keyframes min {
+  0% {
+    transform:rotate(0deg);  
+  }
+  100% {
+    transform: rotate(360deg);   
+  }
+}
+
+/* 时针样式 */
+.hour {
+  width:2%;
+  height:40%;
+  position:absolute; 
+  left:49%;
+  top:15%;
+  transform-origin: center 95px;
+  animation:hour 43200s steps(60);
+  background-color:black;
+  border-top-left-radius:50% 50%;
+  border-top-right-radius:50% 50%;
+  transform-origin: center bottom;
+}
+@keyframes hour {
+  0% {
+    transform:rotate(0deg);  
+  }
+  100% {
+    transform: rotate(360deg);   
+  }
+}
         
     </style>
 </head>
 <body>
-    <div>
+    <div class="clock">
         <span>1</span>
         <span>2</span>
         <span>3</span>
@@ -78,14 +180,20 @@ span:nth-child(12) {
         <span>10</span>
         <span>11</span>
         <span>12</span>
+        <main class="inside">
+            <div class="sec">
+               <div class="sec-back"></div>
+            </div>
+            <div class="min">
+                <div class="min-back"></div>
+             </div>
+             <div class="hour">
+                <div class="hour-back"></div>
+             </div>
+     
+         </main>
       </div> 
-
-    <main>
-        <section>
-            <div></div>
-        </section>
-        <aside></aside>
-        
-    </main>
+   
+   
 </body>
 </html>
