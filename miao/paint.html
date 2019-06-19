@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * YOUR TASK
+画图的题：
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  // 直线
+  var a = 1
+  var b = 50
+  for (var i = 0; i < 400; i++) {
+    a = a + 1
+    var c = dot(a, b)
+  }
+  console.log(c)
+  //  虚线
+  var d = 1
+  var e = 60
+  for (var j = 0; j < 400; j++) {
+    d = d + 2
+    var f = dot(d, e)
+  }
+  console.log(f)
+
+  // 三实两虚
+  var line3 = 70
+  var dot3 = 1
+  for (var k = 0; k < 400; k++) {
+    dot3 = dot3 + 1
+    while ((2 * dot3 + 1) % 10 === 9) {
+      dot3 = dot3 + 2
+    }
+    var sdot3 = dot(dot3, line3)
+  }
+  console.log(sdot3)
+
+  // 45°斜线
+  var slashx = 0
+  var slashy = 0
+  for (var i = 1; i < 400; i++) {
+    slashx = slashx + 1
+    slashy = slashx
+    var slash45 = dot(slashx, slashy)
+  }
+  console.log(slash45)
+
+  var diagonalx = 1
+  var diagonaly = 3 / 4
+  for (var i = 1; i < 400; i++) {
+    diagonalx = diagonalx + 1
+    diagonaly = (3 / 4) * diagonalx
+    var diagonal = dot(diagonalx, diagonaly)
+  }
+  console.log(diagonal)
+
+  // 矩形
+
+  var recx = 1
+  var recy = 1
+  for (recy = 100; recy <= 150; recy++) {
+    if (recy === 100 || recy === 150) {
+      for (recx = 1; recx <= 50; recx++) {
+        dot(recx, recy)
+      }
+    } else {
+      for (recx = 1; recx <= 50; recx = recx + 49) {
+        dot(recx, recy)
+      }
+    }
+  }
+
+  // 实心矩形
+  var recy2 = 50
+  for (var recx2 = 50; recx2 < 100; recx2++) {
+    for (recy2 = 1; recy2 < 50; recy2++) {
+      dot(recx2, recy2)
+    }
+  }
+
+  //  rgb色彩空间
+  var rgbx = 200
+  var rgby = 0
+  var a = 0
+  var b = 0
+  var c = 0
+  for (rgby = 0; rgby <= 100; rgby++) {
+    for (rgbx = 200; rgbx <= 300; rgbx++) {
+      a = a + 2.55
+      dot(rgbx, rgby, "rgb" + "(" + a + "," + b + "," + c + ")")
+    }
+    b = b + 2.55
+  }
+
+  //  一个空心的圆
+  var circlex = 150
+  var circley = 150
+
+  for (circlex = 150; circlex <= 300; circlex++) {
+    circley = Math.sqrt(75 * 75 - (circlex - 225) * (circlex - 225)) + 225
+    dot(circlex, circley)
+  }
+  var circlex = 150
+  for (circlex = 150; circlex <= 300; circlex++) {
+    circley = -(Math.sqrt(75 * 75 - (circlex - 225) * (circlex - 225))) + 225
+    dot(circlex, circley)
+  }
+  var circlex = 150
+  var circley = 150
+  for (circley = 150; circley <= 300; circley++) {
+    circlex = Math.sqrt(75 * 75 - (circley - 225) * (circley - 225)) + 225
+    dot(circlex, circley)
+  }
+  var circlex = 150
+  var circley = 150
+  for (circley = 150; circley <= 300; circley++) {
+    circlex = -(Math.sqrt(75 * 75 - (circley - 225) * (circley - 225))) + 225
+    dot(circlex, circley)
+  }
+
+  // 一个实心的圆
+
+  var cirx = 0
+  var ciry = 150
+  for (cirx = 0; cirx <= 150; cirx++) {
+    for (ciry = Math.floor(-(Math.sqrt(75 * 75 - (cirx - 75) * (cirx - 75)))) + 225; ciry <= Math.floor((Math.sqrt(75 * 75 - (cirx - 75) * (cirx -
+        75)))) + 225; ciry++) {
+      dot(cirx, ciry)
+
+    }
+  }
+ 
+//  sin(x)
+var y = 2
+ for (var x =96;x< 230;x=x + 0.01) {
+   y =50 * Math.sin(((x - 96) / 67) * 2 * Math.PI) + 100
+   dot(x,y)
+ }
+
+
+
+</script>
+
+
+
+
+</html>
