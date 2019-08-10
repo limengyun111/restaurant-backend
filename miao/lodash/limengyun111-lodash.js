@@ -10,22 +10,27 @@ var limengyun111 = {
   },
 
   indexOf: function (array, value, index = 0) {
-    if (0 <= index && index < array.length) {
+    if(index < 0){
+      index = array.length - Math.abs(index)
+      if(index < 0){
+        index = 0
+      }
+    }
       for (var i = index; i < array.length; i++) {
         if (array[i] === value) {
           return i
         }
       }
-    }
     return -1
+   
   },
 
-  join: function (array, separator = ',') {
+  join: function (array, separator=",") {
     var result = ""
-    for (item of array) {
-      result = result + item + separator
+    for(var i = 0;i < array.length - 1;i++){
+      result = result + array[i] + separator
     }
-    return result
+    return result + array[length - 1]
   },
 
   flatten: function (array) {
@@ -188,6 +193,7 @@ var limengyun111 = {
    return function(obj){
      return get(obj,path)
    }
- }
+ },
+
  
 }
