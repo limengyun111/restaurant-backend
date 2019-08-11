@@ -138,11 +138,7 @@ var limengyun111 = {
     }
     return l
   },
-  union: function (...arr) {
-    var a = []
-    var array = a.concat(...arr)
-    return Array.from(new Set(array))
-  },
+  
   matches: function (src) {
     return function (obj) {
       return limengyun111.ismatch(obj, src)
@@ -318,5 +314,172 @@ var limengyun111 = {
   initial:function(array){
     return result = array.pop()
 
+  },
+  last:function(ary){
+    return ary.pop()
+  },
+  intersection:function(arrays){
+    for(var i = 1;i < arguments.length;i++){
+      arguments[0] = arguments[0].filter(it =>arguments[i].includes(it))
+    }
+    return arguments[0]
+  },
+  pull:function(array,values){
+   var s = array.filter(it =>!(values.includes(it)))
+   return s
+  },
+  union: function (...arrays) {
+    var result = []
+    result = [].concat(...arrays)
+    result = [...new Set(result)]
+    return result
+  },
+  unionBy:function(arrays,iterate){
+   var result = []
+   var finalresult = []
+   var map = [] 
+    result =result.concat(...arrays)
+     if(typeof iterate == "function"){
+       for(var item of result){
+          if(!map.includes(iterate(item))){
+            map.push(iterate(item))
+            finalresult.push(item)
+          }
+       }
+     }
+     if(typeof iterate == "string"){
+       for(var item of result){
+         if(!item[iterate] in map){
+           map.push(item[iterate])
+           finalresult.push(item)
+         }
+       }
+     }
+     return finalresult
+  },
+  zip:function(arrays){
+    var result = []
+    var fResult = []
+    for(var i = 0;i < arrays[0].length;i++){
+      for(var j = 0;j < arrays.length;j++){
+        result.push(arrays[j][i])
+      }
+      fResult.push(result)
+      result = []
+    }
+    return fResult
+  },
+  unzip:function(ary){
+    var sumresult = []
+     var result = []
+     for(var i = 0;i < ary[0].length;i++){
+       for(var j = 0;j < ary.length;j++){
+         result.push(ary[j][i])
+       }
+      sumresult.push(result)
+      result = []
+     }
+     return sumresult
+  },
+  countBy:function(collection,iterate){
+    var map = []
+     if(typeof iterate == "function"){
+       for(var i = 0;i < collection.length;i++){
+         var m = iterate(collection[i])
+         if(m in map){
+           map[m]++
+         }else{
+           map[m] = 1
+         }
+       }
+     }
+     if(typeof iterate == "string"){
+       var map  = {}
+       for(var j = 0;j < collection.length;j++){
+         var n = collection[j][iterate]
+         if(n in map){
+           map[n]++
+         }else{
+           map[n] = 1
+         }
+       }
+     }
+     return map
+  },
+  flatMap:function(collection,iterate){
+    var result = []
+      for(var i = 0;i < collection.length;i++){
+        var m = iterate(collection[i])
+        result.push(m)
+      }
+      return result
+  },
+  uniq:function(array){
+    var s = new Set(array)
+    var ss = [...s]
+    return ss
+  },
+  property:function(path){
+     return function(obj){
+       var newpath = path.split(/\./g)
+       for(var i = 0;i < newpath.length;i++){
+           var key =  newpath[i]
+           obj = obj[key]
+       }
+       return obj
+     }
+  },
+  matchesProperty:function(path, srcValue){
+      return function(obj){
+        var newpath = path.split(/\./g)
+        for(var i = 0;i < newpath.length;i++){
+           var key =  newpath[i]
+           obj = obj[key]
+       }
+       if(obj == srcValue){
+         return true
+       }else{
+         return false
+       }
+      }
+  },
+  matches:function(source){
+      return function(obj){
+        for(item in source){
+          if(!(item in obj)){
+            return false
+          }
+          if(obj[item] != source[item]){
+            return false
+          }
+        }
+        return true
+      }
+  },
+  every:function(collection,predicate){
+    if(typeof predicate == "function"){
+      for(item of collection){
+        if(!predicate(item)){
+          return false
+        }
+      }
+      return true
+    }
+    if(typeof predicate == "object"){
+      for(item of collection){
+        if(!limengyun111.matches(predicate,item)){
+            return false
+        }
+      }
+      return true
+    }
+    if(typeof predicate == "string"){
+      for(item of collection){
+        if(!limengyun111.property(predicate)(item)){
+            return false
+        }
+      }
+      return true
+    }
   },
 }
