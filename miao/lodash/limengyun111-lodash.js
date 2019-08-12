@@ -17,7 +17,7 @@ var limengyun111 = {
       }
     }
     for (var i = index; i < array.length; i++) {
-      if (array[i] === value) {
+      if (array[i] == value) {
         return i
       }
     }
@@ -30,7 +30,7 @@ var limengyun111 = {
     for (var i = 0; i < array.length - 1; i++) {
       result = result + array[i] + separator
     }
-    return result + array[length - 1]
+    return result + array[array.length - 1]
   },
 
   flatten: function (array) {
@@ -216,22 +216,23 @@ var limengyun111 = {
     if (Array.isArray(values[values.length - 1])) {
       return array.filter(x => !values.flat().includes(x))
     }
+    
     var iterator = values.pop()
     if (typeof iterator == "function") {
-      return array.filter(x => !values.map(it => iterator(it)).includes(iterator(x)))
+      return array.filter(x => !values.flat().map(it => iterator(it)).includes(iterator(x)))
     }
     if (typeof iterator == "string") {
-      return array.filter(it => !values.map(x => x[iterator]).includes(it[iterator]))
+      return array.filter(it => !values.flat().map(x => x[iterator]).includes(it[iterator]))
     }
   },
   drop: function (array, n = 1) {
     return array.slice(n)
   },
-  dropRight: function (array, n = 1) {
+  dropRight: function (array, n = 0) {
     if (n >= array.length) {
-      return array
+      return  []
     }
-    return array.slice(0, array.length - 1)
+    return array.slice(0, array.length - n)
   },
 
   dropRightWhile: function (array,predicate) {
@@ -289,7 +290,7 @@ var limengyun111 = {
     var result = []
     for(item of array){
       if(Array.isArray(item) && depth!= 0){
-        var flattenItem = this.flattenDeep(item,depth - 1)
+        var flattenItem = this.flattenDepth(item,depth - 1)
         result.push(...flattenItem)
       }else{
         result.push(item)
@@ -312,7 +313,7 @@ var limengyun111 = {
      }
   },
   initial:function(array){
-    return result = array.pop()
+    return result = array.slice(0,array.length - 2)
 
   },
   last:function(ary){
