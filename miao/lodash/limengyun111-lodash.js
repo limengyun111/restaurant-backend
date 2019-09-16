@@ -1,4 +1,65 @@
 var limengyun111 = {
+  identity:function(it){
+    return it
+  },
+  iterate:function(iter){
+    if(typeof iter == "function"){
+      return iter
+    }
+    if(typeof iter == "string"){
+      return limengyun111.property(iter)
+    }
+    if(limengyun111.isArray(iter)){
+      return limengyun111.matchedProperty(...iter)
+    }
+    if(limengyun111.isObject(iter)){
+      return limengyun111.matches(iter)
+    }
+  },
+  property:function(path){
+    return function(obj){
+      var newpath = path.split(/\./g)
+      for(var i = 0;i < newpath.length;i++){
+          var key =  newpath[i]
+          obj = obj[key]
+      }
+      return obj
+    }
+ },
+ matchesProperty:function(path, srcValue){
+     return function(obj){
+       var newpath = path.split(/\./g)
+       for(var i = 0;i < newpath.length;i++){
+          var key =  newpath[i]
+          obj = obj[key]
+      }
+      if(obj == srcValue){
+        return true
+      }else{
+        return false
+      }
+     }
+ },
+ matches:function(source){
+     return function(obj){
+       for(item in source){
+         if(!(item in obj)){
+           return false
+         }
+         if(obj[item] != source[item]){
+           return false
+         }
+       }
+       return true
+     }
+ },
+ isArray:function(value){
+   return Object.prototype.toString.call(value) === "[object Array]"
+ },
+ isObject:function(value){
+   var type = typeof value
+   return value != null && (type == "object" || type == "function")
+ },
   compact: function (ary) {
     return ary.filter(it => it)
   },
@@ -40,10 +101,7 @@ var limengyun111 = {
     })
     return result
   },
-  // includes需要分很多种情况吗，比如数组和对象
-  // includes:function (collection,value,index = 0){
-
-  // },
+ 
   flip: function (func) {
     return function (...args) {
       return func(...args.reverse())
@@ -75,12 +133,13 @@ var limengyun111 = {
     }
   },
 
-
-  ary: function (f, n = f.length) {
-    return function (...args) {
-      return f(...args.slice(0, n))
-    }
-  },
+nth:function(array,n = 0){
+  if(n >=0){
+    return array[n]
+  }else{
+    return array[array.length + n]
+  }
+},
 
   unary: function (f) {
     return ary(f, 1)
@@ -138,7 +197,70 @@ var limengyun111 = {
     }
     return l
   },
-  
+  sortedIndexBy:function(array,value,iteratee = limengyun111.identity){
+     iteratee = limengyun111.iteratee(iteratee)
+     let temp = iteratee(value)
+     for(let i = 0;i < array.length;i++){
+       if(iteratee(array[i])>=temp){
+         return i
+       }
+     }
+     return array.length
+  },
+  sortedIndexOf(array, value){
+    for(let i = 0;i < array.length;i++){
+      if(array[i] == value){
+        return i
+      }
+    }
+  },
+  sortedLastIndex(array, value){
+    for(let i = array.length - 1;i >=0;i--){
+      if(array[i] <= value){
+        return i + 1
+      }
+    }
+    return 0
+  },
+  sortedLastIndexBy:function(array,value,iteratee = limengyun111.identity){
+    iteratee = limengyun111.iteratee(iteratee)
+    let temp = iteratee(value)
+    for(let i = array.length - 1;i >= 0 ;i--){
+      if(iteratee(array[i])<=temp){
+        return i + 1
+      }
+    }
+    return 0
+ },
+  sortedLastIndexOf(array, value){
+    for(let i = array.length - 1;i >= 0;i--){
+    if(array[i] == value){
+      return i
+    }
+    }
+  },
+  sortedUniq(array){
+    let a = new Set(array)
+    let b = Array.form(a)
+    return b
+  },
+  sortedUniqBy(array, iteratee = limengyun111.identity){
+    let result = [],map = []
+    for(let i = 0;i < array.length;i++){
+      let = temp = iteratee(array[i])
+      if(!map.includes(temp)){
+        map.push(temp)
+        result.push(array[i])
+      }
+    }
+    return result
+  },
+  tail(array){
+    return array.slice(1)
+  },
+  take:function(array,n = 1){
+    return array.slice(0,n)
+  },
   matches: function (src) {
     return function (obj) {
       return limengyun111.ismatch(obj, src)
@@ -358,7 +480,11 @@ var limengyun111 = {
      }
      return finalresult
   },
-  zip:function(arrays){
+  zip:function(...array){
+    var arrays = []
+    for(var i = 0;i < array.length;i++){
+      arrays.push(array[i])
+    }
     var result = []
     var fResult = []
     for(var i = 0;i < arrays[0].length;i++){
@@ -420,43 +546,7 @@ var limengyun111 = {
     var ss = [...s]
     return ss
   },
-  property:function(path){
-     return function(obj){
-       var newpath = path.split(/\./g)
-       for(var i = 0;i < newpath.length;i++){
-           var key =  newpath[i]
-           obj = obj[key]
-       }
-       return obj
-     }
-  },
-  matchesProperty:function(path, srcValue){
-      return function(obj){
-        var newpath = path.split(/\./g)
-        for(var i = 0;i < newpath.length;i++){
-           var key =  newpath[i]
-           obj = obj[key]
-       }
-       if(obj == srcValue){
-         return true
-       }else{
-         return false
-       }
-      }
-  },
-  matches:function(source){
-      return function(obj){
-        for(item in source){
-          if(!(item in obj)){
-            return false
-          }
-          if(obj[item] != source[item]){
-            return false
-          }
-        }
-        return true
-      }
-  },
+  
   every:function(collection,predicate){
     if(typeof predicate == "function"){
       for(item of collection){
@@ -483,4 +573,60 @@ var limengyun111 = {
       return true
     }
   },
+  SameValueZero:function(x,y){
+    if(typeof x !== typeof y){
+      return false
+    }
+    if(typeof x == "number"){
+      if(isNaN(x) && isNaN(y)){
+        return true
+      }
+      if(x == "+0" && y =="-0"){
+        return true
+      }
+      if(x == "-0" && y =="+0"){
+        return true
+      }
+      if(x == y){
+        return true
+      }
+    }
+
+  },
+  keyBy:function(collection,iteratee){
+     var map = []
+     if(typeof iteratee == "function"){
+     for(var i = 0;i < collection.length;i++){
+       var value = collection[i]
+       var key = iteratee(value)
+       map[key] = value
+     }
+     return map
+    }
+    if(typeof iteratee == "string"){
+      for(var i = 0;i < collection.length;i++){
+        var key = collection[i][iteratee]
+        var value = collection[i]
+       
+        map[key] = value
+        
+      }
+    }
+    return map
+  },
+  sample:function(collection){
+    return collection[Math.floor(Math.random() * 4)]
+  },
+  size:function(collection){
+    if(typeof collection == "object"){
+      var count = 0
+      for(key in collection){
+        count++
+      }
+      return count
+    }else{
+      return collection.length
+    }  
+  },
+  
 }
