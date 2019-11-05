@@ -1,0 +1,191 @@
+body{
+    margin: 0;
+    overflow: hidden;
+    
+}
+/* 外框 */
+
+.aside1,.aside2,.aside3,section{
+    position: absolute;
+}
+
+.aside1, .aside2, .aside3{
+    width:20vw;
+    height:700px;
+    box-sizing:border-box;
+    dborder:.1px solid;
+    background-color:rgb(235,239,244);
+    box-shadow:5px 5px 20px rgb(90, 89, 89);
+}
+
+section{
+    width:40vw;
+    height:700px;
+    box-sizing: border-box;
+    background-color:rgb(255,255,255);
+    box-shadow: 5px 5px 20px rgb(97, 96, 96);
+}
+
+.sectiondiv1{
+    padding-top:10%;
+    box-sizing:border-box;
+    dborder:1px solid gray;
+    box-shadow: 0px 2px 5px rgb(227,227,227);
+    text-align:line-height;
+    padding-top:calc(3vw - 18px);
+    padding-bottom:calc(3vw - 18px);
+}
+
+section{
+    left:20vw;
+}
+
+.aside2{
+    left:60vw;
+}
+
+.aside3{
+    left:80vw;
+}
+
+/* aside1 内容 */
+
+p{
+   ctext-align: right;
+   white-space: nowrap;
+   margin-right:4%;
+   width:fit-content;
+   margin-left:auto;
+   font-size:30px;
+   display:inline-block;
+   width:20vw;
+
+}
+
+input{
+    border:1px solid;
+    width:18vw;
+    padding-top:4%;
+    box-sizing:border-box;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:25px;
+    display:block;
+}
+.aside1ul {
+    list-style-type:none;
+    height:100%;
+    margin-left:5px;
+    font-size:24px;
+    overflow-y: scroll;
+    color:rgb(136, 50, 235);
+}
+
+li{
+    padding:5px;
+    coverflow-y: scroll;
+}
+li:hover{
+    border:1px solid;
+    background-color: rgb(91, 200, 243);
+}
+
+/* section 内容 */
+fff.sectiondiv1{
+    width:8%;
+    border:1px solid rgb(7, 2, 2);
+    border-radius:10px;
+    display:inline-block;
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+.button1{
+    margin-right:0;
+    margin-left:3%;
+    width:10%;
+
+}
+
+.divbutton{
+    padding:0;
+    display:inline-block;
+    margin-right:0;
+    margin-left:45%;
+    width:60%;
+    
+}
+
+div button{
+    margin:0;
+    margin-right:-6px;
+    vwidth:30%;
+    font-size:12px;
+}
+
+h2{
+    display:inline-block;
+}
+
+.centerul1{
+    list-style-type: none;
+    display:inline-block;
+    border-radius: 10px;
+    padding-left:0;
+    width:47%;
+}
+
+.button2{
+    padding:0;
+    border:none;
+    margin-right:1%;
+    width:9vw;
+    margin-left:auto;
+}
+
+.centerul1 li{
+    display: inline;
+    border-right:1px solid;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+.centerul1 li:last-child{
+    border:none;
+}
+
+d.centerul2 {
+    cborder:1px solid;
+    width:47%;
+    border-radius: 15px;
+    list-style-type: none;
+    display:inline-block;
+    cmargin-left:17%;
+    padding-left:0;
+    
+}
+
+d.centerul2 li{
+    display: inline-block;
+    border-right:1px solid;
+    
+}
+
+c.centerul2 li:last-child{
+    border:none;
+}
+
+/* adide2 内容 */
+button{
+    display:inline-block;
+    cmargin-top:10%;
+    margin-left:5%;
+    font-size:20px;
+    margin-right:4.4vw;
+}
+
+
+
+
+
+

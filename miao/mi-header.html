@@ -1,0 +1,188 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mi-header</title>
+    <style>
+        body {
+            box-sizing:border-box;   
+        }
+        * {
+            box-sizing:inherit;
+        }
+        .wrap {
+            width:100%;
+            background-color: #333;
+        }
+        .top-nav {
+            width:1226px;
+            height:40px;
+            background-color: #fff;
+            font-size: 12px;
+            color: #b0b0b0;
+            background: #333;
+            margin:auto;
+            line-height:40px;
+        }
+        .top-nav a {
+            color: #b0b0b0;
+            text-decoration:none;
+            padding-right:5px;
+        }
+        .top-right {
+            float:right;
+            font-size: 12px;
+            padding-left:10px;
+            padding-right:10px;
+        }
+        .shop-car {
+            width:100px;
+            background-color: yellow;
+            display:inline-block;
+            text-align:center;
+            position:relative;
+        }
+        .shop-car:hover > .drop-top-box {
+            max-height:300px;
+            transition:2s;
+            width:300px;
+            border:1px solid;
+        }
+        .shop-car:hover > .drop-box .drop-bottom-box {
+            height:100px;
+        }
+        .shop-car:hover > .drop-box {
+            height:300px;
+            transition:2s;
+        }
+        
+        
+        .drop-box {
+            position: absolute;
+            width:300px;
+            background-color: #fff;
+            border:1px solid;
+            right:0;
+            kheight:0;
+            
+           
+        }
+        .drop-bottom-box {
+            width:300px;
+            height:0px;
+            border:1px solid;          
+        }
+        .drop-top-box {
+            width:300px;
+            overflow-y: scroll;
+            height:0;
+        }
+        .shop-items {
+            line-height:30px;
+            border-bottom:1px solid;
+            font-size:24px;
+        }
+        .input-wrap {
+          display:relative;
+}
+
+            input {
+            width:200px;
+            height:40px;
+            z-index:20;
+            }
+            .input-drop-down {
+            display:none;
+            width:200px;
+            height:300px;
+            border:1px solid;
+            display:absolute;
+            top:40px;
+            left:0;
+            }
+            input:focus ~ div {
+            display:block;
+            
+            }
+            .input-drop-down:hover {
+            display:block;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="top-nav">
+                <a href="#">小米商城</a> 
+                <span>|</span>
+                <a href="#">MIUI</a>
+                <span>|</span>
+                <a href="#">IoT</a>
+                <span>|</span>
+                <a href="#">云服务</a>
+                <span>|</span>
+                <a href="#">金融</a>
+                <span>|</span>
+                <a href="#">有品</a>
+                <span>|</span>
+                <a href="#">小爱开放平台</a>
+                <span>|</span>
+                <a href="#">企业团购</a>
+                <span>|</span>
+                <a href="#">资质证照</a>
+                <span>|</span>
+                <a href="#">协议规则</an>
+                <span>|</span>
+                <a href="#">下载app</a>
+                <span>|</span>
+                <a href="#">Select Region</a> 
+                <div class="top-right">
+                    <a href="">dddddd</a>
+                    <span>|</span>
+                    <a href="">消息通知</a>
+                    <span>|</span>
+                    <a href="">我的订单</a>
+                    <span>|</span>
+                    <a class="shop-car" href="">购物车
+                        <div class="drop-box">
+                            <div class="drop-top-box">
+                                <p class="shop-items">
+                            小米手环
+                                </p>
+                                <p class="shop-items">
+                            小米手环
+                                </p>
+                                <p class="shop-items">
+                           小米手环
+                
+                                </p>
+                                <p class="shop-items">
+                           小米手环
+                                </p>
+                            <p class="shop-items">
+                                小米手环
+                                </p>
+                            <p class="shop-items">
+                                    小米手环
+                                    </p>
+                           
+                            </div>
+                            <div class="drop-bottom-box"></div>
+                        </div>
+                    </a>
+                </div>
+        </header>
+        <div class=input-wrap>
+                <input type="text">
+                 <div class="input-drop-down">
+                   <a href="#">小米手环</a>
+                   <a href="#">小米手环</a>
+                   <a href="#">小米手环</a>
+                   <a href="#">小米手环</a>
+                   <a href="#">小米手环</a>
+                </div>
+              </div>
+    </div>
+</body>
+</html>

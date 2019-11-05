@@ -1,0 +1,71 @@
+body{
+    width:1363px;
+    height:767px;
+    margin:0;
+}
+ul{
+    list-style-type: none;
+    position:absolute;
+    color:white;
+   
+    margin-left:-40px;
+}
+ul li{
+    position: relative;
+    padding: 0px 10px;
+    white-space: nowrap;
+    background-color: black;
+}
+header > ul > li > ul {
+    top: 100%;
+    left: 0;
+  }
+cul ul ul{
+  position: absolute;
+ 
+}
+ ul ul {
+    top: 0;
+    left: 100%;
+    pointer-events: none;
+    position: absolute; 
+    dopacity:0;  
+}
+ul ul li {
+    opacity:0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+li:hover > ul > li {
+    pointer-events: auto;
+    opacity:1;
+}
+li:hover {
+    background-color: orange;
+  }
+header > ul > li{
+    display:inline-block;
+}
+ul ul::before{
+    content:">";
+    position: absolute;
+    left: -0.1em;
+    color:white;
+
+}
+.wenjian-ul li:nth-child(2),
+.wenjian-ul li:nth-child(6),
+.wenjian-ul li:nth-child(8),
+.wenjian-ul li:nth-child(11),
+.wenjian-ul li:nth-child(13),
+.wenjian-ul li:nth-child(17){
+    border-bottom:1px solid white;
+}
+.aside1 li{
+    list-style-type: none;
+    border-bottom: 1px solid;
+}
+.aside1 li:last-of-child{
+    border-bottom: none;  
+}
+

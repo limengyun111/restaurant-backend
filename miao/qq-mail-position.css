@@ -1,0 +1,18 @@
+div {
+    width:auto;
+    height:70px;
+    border:1px solid;
+  }
+  aside {
+    width:177px;
+    border:1px solid;
+    position:absolute;
+    height:calc(100vh - 70px);
+  }
+  section {
+    border:1px solid;
+    position:absolute;
+    width:calc(100vw - 205px);
+    height:calc(100vh - 70px);
+    left:177px;
+  }

@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        section {
+            background-color: rgba(0,0,0,0.2);
+            display:flex;
+            flex-wrap: wrap;
+            padding:5px;
+        }
+        div {
+            width:200px;
+            flex-grow: 1;
+            background-color:rgba(0,0,0,0.3);
+            margin:5px;
+        }
+        div::before {
+            display:block;
+            content:"";
+            padding-top:100%;
+            background-color: #fff;
+        }
+        div:nth-last-child(-n+5)::before {
+            height:0;
+            padding:0;
+            margin-top:0;
+            margin-bottom:0;
+            background-color: red;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>
